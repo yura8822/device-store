@@ -2,11 +2,13 @@ package com.example.devicestore.controller;
 
 
 import com.example.devicestore.model.User;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 @RestController
@@ -27,7 +29,6 @@ public class UserController {
         User user = this.userArrayList.get(userId);
         user.setName("name "+ Math.random());
         user.setLastName("last name " + Math.random());
-        user.setDateBirth(new Date());
         this.userArrayList.set(userId, user);
         return user;
     }
@@ -40,12 +41,11 @@ public class UserController {
     }
 
 
-    @ResponseBody
-    @RequestMapping(method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
-    public User createUser(@RequestBody String name, String lastName, Date date) {
-        User user = new User(name, lastName, date);
+    @PostMapping("/add")
+    public ResponseEntity<?> createUser(@RequestBody User user) {
         this.userArrayList.add(user);
-        return user;
+        return new ResponseEntity("Successfully add user", new HttpHeaders(), HttpStatus.OK);
+
     }
 
 }
