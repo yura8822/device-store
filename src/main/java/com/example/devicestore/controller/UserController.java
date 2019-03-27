@@ -25,11 +25,17 @@ public class UserController {
 
     @ResponseBody
     @RequestMapping(value = "{userId}",method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_VALUE)
-    public User updateUser(@PathVariable("userId") Integer userId) {
-        User user = this.userArrayList.get(userId);
-        user.setName("name "+ Math.random());
-        user.setLastName("last name " + Math.random());
-        this.userArrayList.set(userId, user);
+    public User updateUser(@PathVariable("userId") Integer userId, @RequestBody User userNew) {
+        User user = null;
+        for (User obj: userArrayList) {
+            if (obj.getId()== userId){
+                user = obj;
+            }
+        }
+        if (user != null){
+            user.setName(userNew.getName());
+            user.setLastName(userNew.getName());
+        }
         return user;
     }
 
@@ -37,15 +43,23 @@ public class UserController {
     @ResponseBody
     @RequestMapping(value = "{userId}",method = RequestMethod.DELETE)
     public void deleteUser(@PathVariable("userId") Integer userId) {
-        this.userArrayList.remove(userId);
+        User user = null;
+        for (User obj: userArrayList) {
+            if (obj.getId()== userId){
+                user = obj;
+            }
+        }
+        if (user != null){
+            this.userArrayList.remove(user);
+        }
+
     }
 
-
+    //curl -H "Content-Type: application/json" -X POST -d '{"name":"NAME!!!!!","lastName":"LASTNAME!!!!!!!!!"}' http://localhost:8080/users/add/
     @PostMapping("/add")
     public ResponseEntity<?> createUser(@RequestBody User user) {
         this.userArrayList.add(user);
         return new ResponseEntity("Successfully add user", new HttpHeaders(), HttpStatus.OK);
-
     }
 
 }

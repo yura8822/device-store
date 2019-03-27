@@ -3,6 +3,7 @@ package com.example.devicestore.model;
 import java.util.Date;
 
 public class User {
+    private static long inkrement;
     private long id;
     private String name;
     private String lastName;
@@ -11,6 +12,8 @@ public class User {
     public User(String name, String lastName) {
         this.name = name;
         this.lastName = lastName;
+        inkrement++;
+        this.id = inkrement;
     }
 
     public long getId() {
