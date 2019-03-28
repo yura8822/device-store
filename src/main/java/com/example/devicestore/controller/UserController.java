@@ -2,12 +2,14 @@ package com.example.devicestore.controller;
 
 
 import com.example.devicestore.model.User;
+import org.codehaus.jackson.map.ObjectMapper;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,10 +17,15 @@ import java.util.List;
 @RequestMapping("/users")
 public class UserController {
     private List<User> userArrayList = new ArrayList<>();
+    private static File fileJson = new File("/home/dev1ubuntu/IdeaProjects/device-store/src/main/resources/jason.txt");
+
 
     @ResponseBody
     @RequestMapping(method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public List<User> getUsers() {
+    public List<User> getUsers() throws IOException {
+        ObjectMapper objectMapper = new ObjectMapper();
+
+        objectMapper.writeValue(fileJson, userArrayList);
         return this.userArrayList;
     }
 
