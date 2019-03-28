@@ -22,7 +22,7 @@ public class UserController {
         return this.userArrayList;
     }
 
-
+    //curl -H "Content-Type: application/json" -X PUT -d '{"name":"@@@","lastName":"$$$"}' http://localhost:8080/users/1/
     @ResponseBody
     @RequestMapping(value = "{userId}",method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_VALUE)
     public User updateUser(@PathVariable("userId") Integer userId, @RequestBody User userNew) {
@@ -34,12 +34,12 @@ public class UserController {
         }
         if (user != null){
             user.setName(userNew.getName());
-            user.setLastName(userNew.getName());
+            user.setLastName(userNew.getLastName());
         }
         return user;
     }
 
-
+    //curl -H "Content-Type: application/json" -X DELETE http://localhost:8080/users/1/
     @ResponseBody
     @RequestMapping(value = "{userId}",method = RequestMethod.DELETE)
     public void deleteUser(@PathVariable("userId") Integer userId) {
