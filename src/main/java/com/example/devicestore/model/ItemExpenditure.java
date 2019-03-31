@@ -1,12 +1,12 @@
 package com.example.devicestore.model;
 
 public class ItemExpenditure {
-    private static int increment=0;
+    private static int increment = 0;
     private long id;
     private String typeConsumption;
     private int price;
 
-    public ItemExpenditure(){
+    public ItemExpenditure() {
 
     }
 
