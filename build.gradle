@@ -4,7 +4,7 @@ plugins {
     id 'application'
 }
 
-mainClassName = 'com.example.devicestore.DeviceStoreApplication'
+mainClassName = 'com.example.personalfinance.PersonalFinanceApplication'
 
 apply plugin: 'io.spring.dependency-management'
 
