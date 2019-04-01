@@ -11,16 +11,16 @@ import java.util.List;
 @RestController
 @RequestMapping("/expense")
 public class ExpenseController {
-    public static List<ExpenseItem> expenseItems = new ArrayList<>();
+    private List<ExpenseItem> expenseItems = new ArrayList<>();
 
     @ResponseBody
-    @RequestMapping(method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public List<ExpenseItem> getListExpenditurer() {
         return this.expenseItems;
     }
 
     @ResponseBody
-    @RequestMapping(value = "all", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = "all", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public Integer getSumListExpenditurer() {
         int sum = 0;
         for (ExpenseItem value : this.expenseItems) {
@@ -31,7 +31,7 @@ public class ExpenseController {
 
     //curl -H "Content-Type: application/json" -X PUT -d '{"typeConsumption":"relax","price":"9999"}' http://localhost:8080/expenditure/1/
     @ResponseBody
-    @RequestMapping(value = "{expenditureID}", method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_VALUE)
+    @PutMapping(value = "{expenditureID}", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public ExpenseItem updateItemExpenditure(@PathVariable("expenditureID") Long expenditureID, @RequestBody ExpenseItem expenseItemForID) {
         ExpenseItem expenseItem = null;
         for (ExpenseItem value : this.expenseItems) {
@@ -47,7 +47,7 @@ public class ExpenseController {
 
     //curl -H "Content-Type: application/json" -X DELETE http://localhost:8080/expenditure/1/
     @ResponseBody
-    @RequestMapping(value = "{expenditureID}", method = RequestMethod.DELETE)
+    @DeleteMapping(value = "{expenditureID}")
     public ExpenseItem deleteItemExpenditure(@PathVariable("expenditureID") Long expenditureID) {
         ExpenseItem expenseItem = null;
         for (ExpenseItem value : this.expenseItems) {
@@ -61,7 +61,7 @@ public class ExpenseController {
 
     //curl -H "Content-Type: application/json" -X POST -d '{"typeConsumption":"eat","price":"987"}' http://localhost:8080/expenditure/
     @ResponseBody
-    @RequestMapping(method = RequestMethod.POST)
+    @PostMapping(produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public ExpenseItem createItemExpenditure(@RequestBody ExpenseItem newitemExpense) {
         ExpenseItem expenseItem = new ExpenseItem(expenseItems.size(), newitemExpense.getTypeConsumption(),
                 newitemExpense.getPrice());
