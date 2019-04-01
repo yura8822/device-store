@@ -11,7 +11,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/expense")
 public class ExpenseController {
-    private List<ExpenseItem> expenseItems = new ArrayList<>();
+    public static List<ExpenseItem> expenseItems = new ArrayList<>();
 
     @ResponseBody
     @RequestMapping(method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
