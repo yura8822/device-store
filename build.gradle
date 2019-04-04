@@ -24,7 +24,8 @@ ext {
 dependencies {
     compile "org.springframework.boot:spring-boot-starter-web:${springV}"
     compile "org.codehaus.jackson:jackson-mapper-asl:${jacksonV}"
-
+    testCompile group: 'com.h2database', name: 'h2', version: '1.4.199'
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-data-jpa', version: '2.1.3.RELEASE'
     testImplementation "org.springframework.boot:spring-boot-starter-test"
 }
 
