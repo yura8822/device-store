@@ -11,9 +11,6 @@ import org.springframework.boot.autoconfigure.jdbc.DataSourceTransactionManagerA
 import org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration;
 import org.springframework.context.support.GenericXmlApplicationContext;
 
-
-
-@EnableAutoConfiguration
 @SpringBootApplication(scanBasePackages = "com.example.task_example_DB")
 public class ExampleDB {
 
