@@ -13,18 +13,14 @@ import org.springframework.context.support.GenericXmlApplicationContext;
 
 
 
-@EnableAutoConfiguration(exclude = {DataSourceAutoConfiguration.class,
-       DataSourceTransactionManagerAutoConfiguration.class, HibernateJpaAutoConfiguration.class})
-
+@EnableAutoConfiguration
 @SpringBootApplication(scanBasePackages = "com.example.task_example_DB")
 public class ExampleDB {
 
     public static void main(String[] args) {
         SpringApplication.run(com.example.task_example_DB.ExampleDB.class, args);
 
-        //GenericXmlApplicationContext ctx = new GenericXmlApplicationContext("config.xml");
-
-        SessionFactory sessionFactory =ExpenceDAO.getSessionFactory();
+        SessionFactory sessionFactory = ExpenceDAO.getSessionFactory();
         Session session = sessionFactory.openSession();
 
 
