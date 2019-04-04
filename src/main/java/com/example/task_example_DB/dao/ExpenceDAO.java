@@ -8,29 +8,23 @@ import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 import org.springframework.stereotype.Component;
 
-import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
 @Component
 public class ExpenceDAO {
 
     public void test() {
-        EntityManager em = HibernateUtil.getEntityManager();
-
-        em.getTransaction().begin();
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        Transaction tx = session.beginTransaction();
 
         User user = new User("name");
+        session.save(user);
 
-        em.persist(user);
-        em.getTransaction().commit();
+        String queryString = "FROM User u WHERE u.name =\'name\'";
+        Query query = session.createQuery(queryString);
+        user = (User) query.getSingleResult();
 
-//        session.save(user);
-//
-//        String queryString = "FROM User u WHERE u.name =\'name\'";
-//        Query query = session.createQuery(queryString);
-//        user = (User) query.getSingleResult();
-//
-//        System.out.println(user.getId());
+        System.out.println(user.getId());
 //
 //        Category category1 = new Category("category1");
 //        session.save(category1);
@@ -57,9 +51,9 @@ public class ExpenceDAO {
 //        user.setExpence(expence);
 //        session.save(user);
 
-//
-//        tx.commit();
-//
-//        session.close();
+
+        tx.commit();
+
+        session.close();
     }
 }
