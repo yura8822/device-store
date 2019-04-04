@@ -37,7 +37,7 @@ public class PersonalFinanceApplicationTests {
 
     private List<ExpenseItem> expenseItems;
 
-//    @Test
+//    @test
 //    public void testCreateExpenditure() throws Exception {
 //
 //        mvc.perform(post("/expense")
@@ -121,7 +121,7 @@ public class PersonalFinanceApplicationTests {
 //        );
 //    }
 //
-//    @Test
+//    @test
 //    public void testUpdateItemExpenditure() throws Exception {
 //
 //        for (int i = 0; i <=3; i++) {
@@ -184,7 +184,7 @@ public class PersonalFinanceApplicationTests {
 //        );
 //    }
 //
-//    @Test
+//    @test
 //    public void testDeleteItemExpenditure() throws Exception {
 //
 //        mvc.perform(delete("/expense/1")
