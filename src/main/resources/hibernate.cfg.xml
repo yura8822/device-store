@@ -14,8 +14,8 @@
 
 
         <mapping class="com.example.task_example_DB.entity.User"/>
-<!--        <mapping class="com.example.task_example_DB.entity.Category"/>-->
-<!--        <mapping class="com.example.task_example_DB.entity.Expence"/>-->
+        <mapping class="com.example.task_example_DB.entity.Category"/>
+        <mapping class="com.example.task_example_DB.entity.Expence"/>
 
     </session-factory>
 </hibernate-configuration>

@@ -1,20 +1,27 @@
 package com.example.task_example_DB.entity;
 
 
-
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
+
 @Entity
-//@Table(name = "users")
+@Table(name = "user")
 public class User implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    @SequenceGenerator(name = "user_seq", sequenceName = "user_seq", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "user_seq")
+    private long id;
 
+    @NotNull(message = "name of user can't be empty")
+    @Column(name = "name", length = 256)
     private String name;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "expence_id")
+    private Expence expence;
 
     public User() {
     }
@@ -23,18 +30,10 @@ public class User implements Serializable {
         this.name = name;
     }
 
-    public User(Long id, String name) {
-        this.id = id;
-        this.name = name;
-    }
-
-    public Long getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public String getName() {
         return name;
@@ -44,11 +43,11 @@ public class User implements Serializable {
         this.name = name;
     }
 
-    @Override
-    public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                '}';
+    public void setExpence(Expence expence) {
+        this.expence = expence;
+    }
+
+    public Expence getExpence() {
+        return expence;
     }
 }
