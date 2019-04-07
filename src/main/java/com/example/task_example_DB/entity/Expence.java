@@ -4,6 +4,7 @@ package com.example.task_example_DB.entity;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.LinkedList;
 import java.util.List;
 
 
@@ -21,7 +22,7 @@ public class Expence implements Serializable {
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "expence")
     @Column(name = "user_id")
-    private List<User> users;
+    private List<User> users = new LinkedList<>();
 
     public Expence() {
     }
@@ -48,5 +49,22 @@ public class Expence implements Serializable {
 
     public void setUsers(List<User> users) {
         this.users = users;
+    }
+
+    @Override
+    public String toString() {
+        String categoryName = "category: null \n";
+
+        if (this.category != null) categoryName = this.category.getName() + " id = " + this.category.getId() + " \n";
+
+        String userName = "user: null";
+        if (!users.isEmpty()){
+            StringBuilder stringBuilder = new StringBuilder();
+            for (User value : users){
+                stringBuilder.append(value.getName() + " id = " + value.getId() +  ", ");
+            }
+            userName = stringBuilder.toString().substring(0,stringBuilder.length()-2) + "\n";
+        }
+        return categoryName + userName;
     }
 }
