@@ -1,9 +1,12 @@
 package com.example.task_example_DB.entity;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
+import java.util.List;
 
 
 @Entity
@@ -19,9 +22,10 @@ public class User implements Serializable {
     @Column(name = "name", length = 256)
     private String name;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "expence_id")
-    private Expence expence;
+
+    //@JsonIgnore
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
+    private List<Expence> expence;
 
     public User() {
     }
@@ -43,11 +47,11 @@ public class User implements Serializable {
         this.name = name;
     }
 
-    public void setExpence(Expence expence) {
-        this.expence = expence;
+    public List<Expence> getExpence() {
+        return expence;
     }
 
-    public Expence getExpence() {
-        return expence;
+    public void setExpence(List<Expence> expence) {
+        this.expence = expence;
     }
 }

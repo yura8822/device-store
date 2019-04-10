@@ -2,6 +2,8 @@ package com.example.task_example_DB.entity;
 
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.LinkedList;
@@ -16,18 +18,21 @@ public class Expence implements Serializable {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "expence_seq")
     private long id;
 
+    @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "category_id")
     private Category category;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "expence")
-    @Column(name = "user_id")
-    private List<User> users = new LinkedList<>();
+    @JsonIgnore
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id")
+    private User user;
 
     public Expence() {
     }
 
-    public Expence(Category category) {
+    public Expence(Category category, User user) {
+        this.user = user;
         this.category = category;
     }
 
@@ -43,28 +48,11 @@ public class Expence implements Serializable {
         this.category = category;
     }
 
-    public List<User> getUsers() {
-        return users;
+    public User getUser() {
+        return user;
     }
 
-    public void setUsers(List<User> users) {
-        this.users = users;
-    }
-
-    @Override
-    public String toString() {
-        String categoryName = "category: null \n";
-
-        if (this.category != null) categoryName = this.category.getName() + " id = " + this.category.getId() + " \n";
-
-        String userName = "user: null";
-        if (!users.isEmpty()){
-            StringBuilder stringBuilder = new StringBuilder();
-            for (User value : users){
-                stringBuilder.append(value.getName() + " id = " + value.getId() +  ", ");
-            }
-            userName = stringBuilder.toString().substring(0,stringBuilder.length()-2) + "\n";
-        }
-        return categoryName + userName;
+    public void setUser(User user) {
+        this.user = user;
     }
 }

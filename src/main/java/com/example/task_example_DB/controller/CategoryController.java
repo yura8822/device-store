@@ -34,8 +34,7 @@ public class CategoryController {
     @ResponseBody
     @PostMapping
     public Category createCategory(@RequestBody Category categoryCreateDTO){
-        Category category = new Category();
-        category.setName(categoryCreateDTO.getName());
+        Category category = new Category(categoryCreateDTO.getName());
         categoryRepository.save(category);
         return category;
     }

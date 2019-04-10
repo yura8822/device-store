@@ -1,5 +1,7 @@
 package com.example.task_example_DB.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
@@ -17,8 +19,8 @@ public class Category implements Serializable {
     @Column(name = "name", length = 256)
     private String name;
 
+    //@JsonIgnore
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "category")
-    @Column(name = "expence_id")
     private List<Expence> expences;
 
     public Category() {
