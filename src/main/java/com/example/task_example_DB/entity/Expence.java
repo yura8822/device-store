@@ -1,10 +1,12 @@
 package com.example.task_example_DB.entity;
 
 
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.math.BigDecimal;
 
 
 @Entity
@@ -14,6 +16,9 @@ public class Expence implements Serializable {
     @SequenceGenerator(name = "expence_seq", sequenceName = "expence_seq", allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "expence_seq")
     private long id;
+
+    @Column(name = "amount")
+    private BigDecimal amount;
 
     @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)
@@ -28,9 +33,10 @@ public class Expence implements Serializable {
     public Expence() {
     }
 
-    public Expence(Category category, User user) {
+    public Expence(Category category, User user, BigDecimal amount) {
         this.user = user;
         this.category = category;
+        this.amount = amount;
     }
 
     public long getId() {
@@ -51,5 +57,13 @@ public class Expence implements Serializable {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public BigDecimal getAmount() {
+        return amount;
+    }
+
+    public void setAmount(BigDecimal amount) {
+        this.amount = amount;
     }
 }

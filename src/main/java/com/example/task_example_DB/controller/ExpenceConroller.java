@@ -8,6 +8,7 @@ import com.example.task_example_DB.repo.ExpenceRepository;
 import com.example.task_example_DB.repo.UsersRepository;
 import org.springframework.web.bind.annotation.*;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 @RestController
@@ -26,29 +27,32 @@ public class ExpenceConroller {
 
     @ResponseBody
     @GetMapping
-    public List<Expence> getAllExpence() {
+    public List<Expence> getAllExpence(){
         List<Expence> expenceList = expenceRepository.findAll();
         return expenceList;
     }
 
     @ResponseBody
     @GetMapping(value = "/{id}")
-    public Expence getExpenceById(@PathVariable(value = "id") Long id) {
+    public Expence getExpenceById(@PathVariable(value = "id") Long id){
         Expence expence = expenceRepository.findExpenceById(id);
         return expence;
     }
 
     @ResponseBody
-    @PostMapping(value = "/{id}")
-    public Expence createExpence(@PathVariable(value = "id") Long id) {
+    @GetMapping(value = "amount/{amount}")
+    public List<Expence> getExpenceAmountSort(@PathVariable(value = "amount") BigDecimal amount){
+        List<Expence> list = expenceRepository.findByAmount(amount);
+        return list;
+    }
+
+    @ResponseBody
+    @PostMapping(value = "/{id}/{amount}")
+    public Expence createExpence(@PathVariable(value = "id") Long id, @PathVariable(value = "amount") BigDecimal amount){
         User user = usersRepository.findUserById(id);
         Category category = categoryRepository.findCategoryById(id);
-        Expence expence = new Expence(category, user);
-        expence = expenceRepository.save(expence);
-
-        user = usersRepository.findUserById(id);
-        System.out.println(user.getExpence().size());
-
+        Expence expence = new Expence(category, user, amount);
+        expenceRepository.save(expence);
         return expence;
     }
 
@@ -57,6 +61,7 @@ public class ExpenceConroller {
     public void deleteExpence(@PathVariable(value = "id") Long id) {
         expenceRepository.deleteById(id);
     }
+
 
 
 }
