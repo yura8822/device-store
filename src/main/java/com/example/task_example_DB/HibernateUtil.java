@@ -4,7 +4,6 @@ import org.hibernate.SessionFactory;
 import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
-import org.hibernate.cfg.Configuration;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -12,7 +11,7 @@ import javax.persistence.Persistence;
 
 public class HibernateUtil {
 
-    private static final SessionFactory  sessionFactory;
+    private static final SessionFactory sessionFactory;
 
     private static EntityManagerFactory emf = Persistence.createEntityManagerFactory("com.example.task_example_DB");
 
@@ -23,7 +22,7 @@ public class HibernateUtil {
                             .build();
             sessionFactory = new MetadataSources(standardServiceRegistry).getMetadataBuilder()
                     .build().getSessionFactoryBuilder().build();
-        }catch (Throwable th) {
+        } catch (Throwable th) {
 
             System.err.println("Enitial SessionFactory creation failed" + th);
             throw new ExceptionInInitializerError(th);
