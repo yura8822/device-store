@@ -9,7 +9,7 @@ import javax.persistence.EntityManager;
 @SpringBootApplication(scanBasePackages = "com.example.task_example_DB")
 public class ExampleDB {
 
-    public static EntityManager entityManager = HibernateUtil.getEntityManager();
+    //public static EntityManager entityManager = HibernateUtil.getEntityManager();
 
     public static void main(String[] args) {
         SpringApplication.run(ExampleDB.class, args);
