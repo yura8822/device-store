@@ -10,9 +10,9 @@ public interface CategryService {
 
     Category findCategryById(Long id);
 
-    Category updateCategryById(Long id);
+    Category updateCategryById(Long id, Category categoryUpdateDTO);
 
     void deleteCategryrById(Long id);
 
-    Category createCategry(Category user);
+    Category createCategry(Category categoryCreateDTO);
 }
