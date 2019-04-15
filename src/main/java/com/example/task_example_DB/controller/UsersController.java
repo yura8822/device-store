@@ -5,8 +5,10 @@ import com.example.task_example_DB.dao.UserServiceImpl;
 import com.example.task_example_DB.entity.User;
 import com.example.task_example_DB.repo.UsersRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -48,6 +50,12 @@ public class UsersController {
     @PostMapping
     public User createUser(@RequestBody User userCreateDTO) {
         return userService.createUser(userCreateDTO);
+    }
+
+    @PostMapping("/users/se")
+    public ResponseEntity<?> createUserAjax(@Valid @RequestBody User user) {
+        return ResponseEntity.ok(userService.createUser(user));
+
     }
 
 }

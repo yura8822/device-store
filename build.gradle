@@ -32,8 +32,20 @@ dependencies {
     runtimeOnly 'org.springframework.boot:spring-boot-devtools'
     
     testImplementation "org.springframework.boot:spring-boot-starter-test"
-}
 
+//    // https://mvnrepository.com/artifact/org.apache.tomcat.embed/tomcat-embed-jasper
+//    compile group: 'org.apache.tomcat.embed', name: 'tomcat-embed-jasper', version: '9.0.17'
+//    // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-tomcat
+//    compile group: 'org.springframework.boot', name: 'spring-boot-starter-tomcat', version: '2.1.4.RELEASE'
+    // https://mvnrepository.com/artifact/org.webjars/jquery
+    compile group: 'org.webjars', name: 'jquery', version: '3.3.1'
+    // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-thymeleaf
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-thymeleaf', version: '2.1.4.RELEASE'
+    // https://mvnrepository.com/artifact/org.webjars/bootstrap
+    compile group: 'org.webjars', name: 'bootstrap', version: '3.2.0'
+
+
+}
 wrapper {
     gradleVersion = "5.0" // Желаемая версия
 }
