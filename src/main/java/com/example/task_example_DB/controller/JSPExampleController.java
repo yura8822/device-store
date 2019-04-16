@@ -8,9 +8,21 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class JSPExampleController {
 
-    @GetMapping("/hello")
-    public String hello(Model model, @RequestParam(value="name", required=false, defaultValue="World") String name) {
+//    @GetMapping("/hello")
+//    public String hello(Model model, @RequestParam(value = "name", required = false, defaultValue = "World") String name) {
+//        model.addAttribute("name", name);
+//        return "hello";
+//    }
+
+    @GetMapping("/jsp")
+    String jspPage(Model model, @RequestParam String name) {
         model.addAttribute("name", name);
         return "hello";
+    }
+
+    @GetMapping("/thymeleaf")
+    String thymeleafPage(Model model,@RequestParam String name) {
+        model.addAttribute("name", name);
+        return "thymeleaf/hello";
     }
 }

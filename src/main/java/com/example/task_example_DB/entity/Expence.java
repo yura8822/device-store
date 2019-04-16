@@ -1,7 +1,6 @@
 package com.example.task_example_DB.entity;
 
 
-
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;

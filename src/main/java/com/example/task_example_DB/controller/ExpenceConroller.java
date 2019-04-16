@@ -1,12 +1,7 @@
 package com.example.task_example_DB.controller;
 
 import com.example.task_example_DB.dao.ExpenceServiceImpl;
-import com.example.task_example_DB.entity.Category;
 import com.example.task_example_DB.entity.Expence;
-import com.example.task_example_DB.entity.User;
-import com.example.task_example_DB.repo.CategoryRepository;
-import com.example.task_example_DB.repo.ExpenceRepository;
-import com.example.task_example_DB.repo.UsersRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -25,25 +20,25 @@ public class ExpenceConroller {
 
     @ResponseBody
     @GetMapping
-    public List<Expence> getAllExpence(){
+    public List<Expence> getAllExpence() {
         return expenceService.findAllExpence();
     }
 
     @ResponseBody
     @GetMapping(value = "/{id}")
-    public Expence getExpenceById(@PathVariable(value = "id") Long id){
+    public Expence getExpenceById(@PathVariable(value = "id") Long id) {
         return expenceService.findExpenceById(id);
     }
 
     @ResponseBody
     @GetMapping(value = "amount/{amount}")
-    public List<Expence> getExpenceAmountSort(@PathVariable(value = "amount") BigDecimal amount){
+    public List<Expence> getExpenceAmountSort(@PathVariable(value = "amount") BigDecimal amount) {
         return expenceService.findAllExpenceBySort(amount);
     }
 
     @ResponseBody
     @PostMapping(value = "/{id}/{amount}")
-    public Expence createExpence(@PathVariable(value = "id") Long id, @PathVariable(value = "amount") BigDecimal amount){
+    public Expence createExpence(@PathVariable(value = "id") Long id, @PathVariable(value = "amount") BigDecimal amount) {
         return expenceService.createExpence(id, amount);
     }
 

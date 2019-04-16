@@ -3,13 +3,16 @@ package com.example.task_example_DB;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-
-import javax.persistence.EntityManager;
+import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 
 @SpringBootApplication(scanBasePackages = "com.example.task_example_DB")
-public class ExampleDB {
+public class ExampleDB extends SpringBootServletInitializer {
 
-    //public static EntityManager entityManager = HibernateUtil.getEntityManager();
+    @Override
+    protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
+        return application.sources(ExampleDB.class);
+    }
 
     public static void main(String[] args) {
         SpringApplication.run(ExampleDB.class, args);

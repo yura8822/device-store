@@ -22,27 +22,23 @@ ext {
 }
 
 dependencies {
-    compile "org.springframework.boot:spring-boot-starter-web:${springV}"
-    compile "org.codehaus.jackson:jackson-mapper-asl:${jacksonV}"
-    compile "org.hibernate:hibernate-entitymanager:5.4.2.Final"
-    compile "org.hibernate:hibernate-core:5.4.2.Final"
-    compile "com.h2database:h2:1.4.194"
-    compile group: 'org.springframework.boot', name: 'spring-boot-starter-data-jpa', version: '2.1.4.RELEASE'
-    
-    runtimeOnly 'org.springframework.boot:spring-boot-devtools'
-    
+    implementation "org.springframework.boot:spring-boot-starter-web:${springV}"
+    implementation "org.codehaus.jackson:jackson-mapper-asl:${jacksonV}"
+    implementation "org.hibernate:hibernate-entitymanager:5.4.2.Final"
+    implementation "org.hibernate:hibernate-core:5.4.2.Final"
+    implementation "com.h2database:h2:1.4.194"
+    implementation "org.springframework.boot:spring-boot-starter-data-jpa:2.1.4.RELEASE"
+
+    implementation "javax.servlet:jstl:1.2"
+    implementation "org.webjars:jquery:3.3.1"
+    implementation "org.springframework.boot:spring-boot-starter-thymeleaf:2.1.4.RELEASE"
+    implementation "org.webjars:bootstrap:3.2.0"
+
+    runtimeOnly "org.springframework.boot:spring-boot-devtools"
+
     testImplementation "org.springframework.boot:spring-boot-starter-test"
 
-//    // https://mvnrepository.com/artifact/org.apache.tomcat.embed/tomcat-embed-jasper
-//    compile group: 'org.apache.tomcat.embed', name: 'tomcat-embed-jasper', version: '9.0.17'
-//    // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-tomcat
-//    compile group: 'org.springframework.boot', name: 'spring-boot-starter-tomcat', version: '2.1.4.RELEASE'
-    // https://mvnrepository.com/artifact/org.webjars/jquery
-    compile group: 'org.webjars', name: 'jquery', version: '3.3.1'
-    // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-thymeleaf
-    compile group: 'org.springframework.boot', name: 'spring-boot-starter-thymeleaf', version: '2.1.4.RELEASE'
-    // https://mvnrepository.com/artifact/org.webjars/bootstrap
-    compile group: 'org.webjars', name: 'bootstrap', version: '3.2.0'
+
 
 
 }

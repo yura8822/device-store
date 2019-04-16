@@ -2,7 +2,6 @@ package com.example.task_example_DB.controller;
 
 import com.example.task_example_DB.dao.CategoryServiceImpl;
 import com.example.task_example_DB.entity.Category;
-import com.example.task_example_DB.repo.CategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -39,7 +38,7 @@ public class CategoryController {
     @ResponseBody
     @PutMapping(value = "/{id}")
     public Category updateCategoryId(@PathVariable(value = "id") Long id, @RequestBody Category categoryUpdateDTO) {
-        return categoryService.updateCategryById(id,categoryUpdateDTO);
+        return categoryService.updateCategryById(id, categoryUpdateDTO);
     }
 
     @ResponseBody

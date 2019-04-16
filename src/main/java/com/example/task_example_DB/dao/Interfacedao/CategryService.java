@@ -2,7 +2,6 @@ package com.example.task_example_DB.dao.Interfacedao;
 
 import com.example.task_example_DB.entity.Category;
 
-import javax.validation.constraints.Size;
 import java.util.List;
 
 public interface CategryService {
