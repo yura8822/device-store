@@ -4,15 +4,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class JSPExampleController {
 
-//    @GetMapping("/hello")
-//    public String hello(Model model, @RequestParam(value = "name", required = false, defaultValue = "World") String name) {
-//        model.addAttribute("name", name);
-//        return "hello";
-//    }
+    private long iterator = 0;
 
     @GetMapping("/jsp")  //http://localhost:8080/jsp?name=ajit
     String jspPage(Model model, @RequestParam String name) {
@@ -24,5 +21,12 @@ public class JSPExampleController {
     String thymeleafPage(Model model,@RequestParam String name) {
         model.addAttribute("name", name);
         return "thymeleaf/hello";
+    }
+
+    @ResponseBody
+    @GetMapping("/iter")
+    public long getIterator() {
+        iterator = iterator + 1;
+        return iterator;
     }
 }
