@@ -14,13 +14,13 @@ public class JSPExampleController {
 //        return "hello";
 //    }
 
-    @GetMapping("/jsp")
+    @GetMapping("/jsp")  //http://localhost:8080/jsp?name=ajit
     String jspPage(Model model, @RequestParam String name) {
         model.addAttribute("name", name);
         return "hello";
     }
 
-    @GetMapping("/thymeleaf")
+    @GetMapping("/thymeleaf") //http://localhost:8080/thymeleaf?name=ajit
     String thymeleafPage(Model model,@RequestParam String name) {
         model.addAttribute("name", name);
         return "thymeleaf/hello";
