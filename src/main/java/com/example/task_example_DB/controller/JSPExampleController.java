@@ -1,5 +1,6 @@
 package com.example.task_example_DB.controller;
 
+import com.example.task_example_DB.entity.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -28,5 +29,10 @@ public class JSPExampleController {
     public long getIterator() {
         iterator = iterator + 1;
         return iterator;
+    }
+
+    @GetMapping("/user")
+    public String createUser(){
+        return "thymeleaf/User";
     }
 }
