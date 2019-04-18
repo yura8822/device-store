@@ -31,8 +31,8 @@ public class JSPExampleController {
         return iterator;
     }
 
-    @GetMapping("/user")
+    @GetMapping("/userForm")
     public String createUser(){
-        return "thymeleaf/User";
+        return "thymeleaf/user";
     }
 }
