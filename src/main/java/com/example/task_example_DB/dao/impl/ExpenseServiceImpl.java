@@ -1,6 +1,6 @@
-package com.example.task_example_DB.dao;
+package com.example.task_example_DB.dao.impl;
 
-import com.example.task_example_DB.dao.Interfacedao.ExpenceService;
+import com.example.task_example_DB.dao.ExpenseService;
 import com.example.task_example_DB.entity.Expence;
 import com.example.task_example_DB.repo.CategoryRepository;
 import com.example.task_example_DB.repo.ExpenceRepository;
@@ -12,40 +12,40 @@ import java.math.BigDecimal;
 import java.util.List;
 
 @Component
-public class ExpenceServiceImpl implements ExpenceService {
+public class ExpenseServiceImpl implements ExpenseService {
     private ExpenceRepository expenceRepository;
     private UsersRepository usersRepository;
     private CategoryRepository categoryRepository;
 
     @Autowired
-    public ExpenceServiceImpl(ExpenceRepository expenceRepository, UsersRepository usersRepository, CategoryRepository categoryRepository) {
+    public ExpenseServiceImpl(ExpenceRepository expenceRepository, UsersRepository usersRepository, CategoryRepository categoryRepository) {
         this.expenceRepository = expenceRepository;
         this.usersRepository = usersRepository;
         this.categoryRepository = categoryRepository;
     }
 
     @Override
-    public List<Expence> findAllExpence() {
+    public List<Expence> findAllExpense() {
         return expenceRepository.findAll();
     }
 
     @Override
-    public Expence findExpenceById(Long id) {
+    public Expence findExpenseById(Long id) {
         return expenceRepository.findExpenceById(id);
     }
 
     @Override
-    public List<Expence> findAllExpenceBySort(BigDecimal amount) {
+    public List<Expence> findAllExpenseBySort(BigDecimal amount) {
         return expenceRepository.findByAmount(amount);
     }
 
     @Override
-    public void deleteExpenceById(Long id) {
+    public void deleteExpenseById(Long id) {
         expenceRepository.deleteById(id);
     }
 
     @Override
-    public Expence createExpence(Long id, BigDecimal amount) {
+    public Expence createExpense(Long id, BigDecimal amount) {
         Expence expence = new Expence(categoryRepository.findCategoryById(id), usersRepository.findUserById(id), amount);
         expenceRepository.save(expence);
         return expence;

@@ -1,11 +1,8 @@
 package com.example.task_example_DB;
 
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.*;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
-import org.springframework.web.servlet.view.JstlView;
 
 @Configuration
 @EnableWebMvc
@@ -13,7 +10,7 @@ public class JPSConfiguration implements WebMvcConfigurer {
 
     private static final String[] CLASSPATH_RESOURCE_LOCATIONS = {
             "classpath:/META-INF/resources/", "classpath:/resources/",
-            "classpath:/static/", "classpath:/public/" };
+            "classpath:/static/", "classpath:/public/"};
 
     @Override
     public void configureViewResolvers(ViewResolverRegistry registry) {

@@ -1,4 +1,4 @@
-package com.example.task_example_DB.dao.Interfacedao;
+package com.example.task_example_DB.dao;
 
 import com.example.task_example_DB.entity.User;
 
