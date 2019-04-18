@@ -4,7 +4,7 @@
 <head>
     <title>Create user</title>
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.0.min.js"></script>
-    <script type="text/javascript" src="js/ajaxCreateUser.js"></script>
+    <script type="text/javascript" src="js/user.js"></script>
     <link rel="stylesheet" type="text/css"
           href="webjars/bootstrap/3.2.0/css/bootstrap.min.css"/>
 </head>
@@ -18,21 +18,19 @@
 
         <div id="feedback"></div>
 
-        <form id="formCRUD">
-            <div >
-                <label>Enter username</label>
-                <div>
-                    <input type="text" id="text"/>
-                </div>
+        <div >
+            <label>Enter username</label>
+            <div>
+                <input type="text" id="text"/>
             </div>
+        </div>
 
-             <div>
-                <div>
-                    <button type="submit" id="buttonAddUser">Add user</button>
-                </div>
-
+        <div>
+            <div>
+                <button onclick="add_user()" id="buttonAddUser">Add user</button>
             </div>
-        </form>
+        </div>
+
     </div>
 </div>
 

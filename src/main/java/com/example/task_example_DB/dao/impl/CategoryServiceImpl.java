@@ -1,6 +1,6 @@
-package com.example.task_example_DB.dao;
+package com.example.task_example_DB.dao.impl;
 
-import com.example.task_example_DB.dao.Interfacedao.CategryService;
+import com.example.task_example_DB.dao.CategryService;
 import com.example.task_example_DB.entity.Category;
 import com.example.task_example_DB.repo.CategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,17 +18,17 @@ public class CategoryServiceImpl implements CategryService {
     }
 
     @Override
-    public List<Category> findAllCategry() {
+    public List<Category> findAllCategory() {
         return categoryRepository.findAll();
     }
 
     @Override
-    public Category findCategryById(Long id) {
+    public Category findCategoryById(Long id) {
         return categoryRepository.findCategoryById(id);
     }
 
     @Override
-    public Category updateCategryById(Long id, Category categoryUpdateDTO) {
+    public Category updateCategoryById(Long id, Category categoryUpdateDTO) {
         Category category = categoryRepository.findCategoryById(id);
         category.setName(categoryUpdateDTO.getName());
         categoryRepository.save(category);
@@ -36,12 +36,12 @@ public class CategoryServiceImpl implements CategryService {
     }
 
     @Override
-    public void deleteCategryrById(Long id) {
+    public void deleteCategoryById(Long id) {
         categoryRepository.deleteById(id);
     }
 
     @Override
-    public Category createCategry(Category categoryCreateDTO) {
+    public Category createCategory(Category categoryCreateDTO) {
         Category category = new Category(categoryCreateDTO.getName());
         categoryRepository.save(category);
         return category;

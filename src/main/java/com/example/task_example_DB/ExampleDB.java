@@ -9,13 +9,13 @@ import org.springframework.boot.web.servlet.support.SpringBootServletInitializer
 @SpringBootApplication(scanBasePackages = "com.example.task_example_DB")
 public class ExampleDB extends SpringBootServletInitializer {
 
-    @Override
-    protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
-        return application.sources(ExampleDB.class);
-    }
-
     public static void main(String[] args) {
         SpringApplication.run(ExampleDB.class, args);
 
+    }
+
+    @Override
+    protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
+        return application.sources(ExampleDB.class);
     }
 }

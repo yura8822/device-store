@@ -1,6 +1,5 @@
-package com.example.task_example_DB.controller;
+package com.example.task_example_DB.controller.view;
 
-import com.example.task_example_DB.entity.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,14 +11,14 @@ public class JSPExampleController {
 
     private long iterator = 0;
 
-    @GetMapping("/jsp")  //http://localhost:8080/jsp?name=ajit
+    @GetMapping("/jsp")
     String jspPage(Model model, @RequestParam String name) {
         model.addAttribute("name", name);
         return "hello";
     }
 
-    @GetMapping("/thymeleaf") //http://localhost:8080/thymeleaf?name=ajit
-    String thymeleafPage(Model model,@RequestParam String name) {
+    @GetMapping("/thymeleaf")
+    String thymeleafPage(Model model, @RequestParam String name) {
         model.addAttribute("name", name);
         return "thymeleaf/hello";
     }
@@ -31,8 +30,4 @@ public class JSPExampleController {
         return iterator;
     }
 
-    @GetMapping("/userForm")
-    public String createUser(){
-        return "thymeleaf/user";
-    }
 }

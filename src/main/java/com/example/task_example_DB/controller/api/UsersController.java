@@ -1,20 +1,18 @@
-package com.example.task_example_DB.controller;
+package com.example.task_example_DB.controller.api;
 
 
-import com.example.task_example_DB.dao.UserServiceImpl;
+import com.example.task_example_DB.dao.impl.UserServiceImpl;
 import com.example.task_example_DB.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import javax.validation.Valid;
 import java.util.List;
 
 @RestController
-@RequestMapping("/users")
+@RequestMapping("/api/users")
 public class UsersController {
 
-    UserServiceImpl userService;
+    private UserServiceImpl userService;
 
     @Autowired
     public UsersController(UserServiceImpl userService) {

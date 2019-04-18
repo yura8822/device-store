@@ -1,6 +1,6 @@
-package com.example.task_example_DB.dao;
+package com.example.task_example_DB.dao.impl;
 
-import com.example.task_example_DB.dao.Interfacedao.UserService;
+import com.example.task_example_DB.dao.UserService;
 import com.example.task_example_DB.entity.User;
 import com.example.task_example_DB.repo.UsersRepository;
 import org.springframework.beans.factory.annotation.Autowired;

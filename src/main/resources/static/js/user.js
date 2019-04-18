@@ -1,23 +1,21 @@
 $(document).ready(function () {
 
-
-    $("#formCRUD").submit(function (event) {
-        ajax_add_user();
-    });
 });
 
-function ajax_add_user() {
+function add_user() {
     var text = {}
     text["name"] = $("#text").val();
 
     $("#buttonAddUser").prop("disabled", true);
 
     $.ajax({
+        url: "api/users",
         type: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
         contentType: "application/json",
-        url: "/users",
         data: JSON.stringify(text),
-        dataType: 'json',
         success: function (data) {
             console.log(data);
              var json = "<h4>Ajax Response</h4><pre>"
