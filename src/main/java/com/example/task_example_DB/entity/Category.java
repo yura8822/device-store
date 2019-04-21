@@ -19,7 +19,7 @@ public class Category implements Serializable {
     @Column(name = "name", length = 256)
     private String name;
 
-    @JsonIgnore
+    //@JsonIgnore
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "category")
     private List<Expence> expences;
 

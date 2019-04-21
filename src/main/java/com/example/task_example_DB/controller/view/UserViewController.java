@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class UserViewController {
 
     @GetMapping("/user")
-    public String createUser() {
+    public String userCRUD() {
         return "thymeleaf/user";
     }
 }

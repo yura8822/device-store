@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>CRUD expense</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.0.min.js"></script>
+    <script type="text/javascript" src="js/expense.js"></script>
+    <!--    <link rel="stylesheet" type="text/css"-->
+    <!--          href="webjars/bootstrap/3.2.0/css/bootstrap.min.css"/>-->
+    <link rel="stylesheet" type="text/css"
+          href="css/viewCSS.css"/>
+</head>
+
+<body>
+
+<div>
+    <label for="get_expense_ID">Get expense</label><br>
+    <input type="text" id="get_expense_ID" value="ID" >
+    <button onclick="get_expense()">get</button>
+</div>
+
+<div>
+    <label for="get_expense_amount">Get expense(>amount)</label><br>
+    <input type="text" id="get_expense_amount"  value="amount" >
+    <button onclick="get_expense_amount()">get</button>
+</div>
+
+<div>
+    <label for="add_expense_amount">Add expense</label><br>
+    <input type="text" id="add_expense_amount"  value="amount" >
+    <label for="add_expense_ID">User and Category</label>
+    <input type="text" id="add_expense_ID" value="ID user and Category" >
+    <button onclick="add_expense()">add</button>
+</div>
+
+<div>
+    <label for="delete_expense_ID">Delete expense</label><br>
+    <input type="text" id="delete_expense_ID" value="ID" >
+    <button onclick="delete_expense()">delete</button></button>
+</div>
+
+<div id="feedback"></div>
+
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>CRUD category</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.0.min.js"></script>
+    <script type="text/javascript" src="js/category.js"></script>
+    <!--    <link rel="stylesheet" type="text/css"-->
+    <!--          href="webjars/bootstrap/3.2.0/css/bootstrap.min.css"/>-->
+    <link rel="stylesheet" type="text/css"
+          href="css/viewCSS.css"/>
+</head>
+
+
+<body>
+
+<div>
+    <label for="get_category_ID">Get category</label><br>
+    <input type="text" id="get_category_ID" value="ID" >
+    <button onclick="get_category()">get</button>
+</div>
+
+<div>
+    <label for="update_category_name">Update category</label><br>
+    <input type="text" id="update_category_name" value="enter category name" >
+    <label for="update_category_ID">ID</label>
+    <input type="text" id="update_category_ID" value="ID" >
+    <button onclick="update_category()">update</button>
+</div>
+
+<div>
+    <label for="add_category_name">Add category</label><br>
+    <input type="text" id="add_category_name" value="enter category name" >
+    <button onclick="add_category()">add</button>
+</div>
+
+<div>
+    <label for="delete_category_ID">Delete category</label><br>
+    <input type="text" id="delete_category_ID" value="ID" >
+    <button onclick="delete_category()">delete</button>
+</div>
+
+<div id="feedback"></div>
+
+</body>
+
+</html>

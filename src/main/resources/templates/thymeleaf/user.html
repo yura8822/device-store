@@ -2,37 +2,45 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
-    <title>Create user</title>
+    <title>CRUD user</title>
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.0.min.js"></script>
     <script type="text/javascript" src="js/user.js"></script>
+<!--    <link rel="stylesheet" type="text/css"-->
+<!--          href="webjars/bootstrap/3.2.0/css/bootstrap.min.css"/>-->
     <link rel="stylesheet" type="text/css"
-          href="webjars/bootstrap/3.2.0/css/bootstrap.min.css"/>
+          href="css/viewCSS.css"/>
 </head>
 
 
 <body>
 
-<div style="min-height: 500px">
     <div>
-        <h1>AJAX Example</h1>
-
-        <div id="feedback"></div>
-
-        <div >
-            <label>Enter username</label>
-            <div>
-                <input type="text" id="text"/>
-            </div>
-        </div>
-
-        <div>
-            <div>
-                <button onclick="add_user()" id="buttonAddUser">Add user</button>
-            </div>
-        </div>
-
+        <label for="get_users_ID">Get users</label><br>
+        <input type="text" id="get_users_ID" value="ID" >
+        <button onclick="get_users()">get</button>
     </div>
-</div>
+
+    <div>
+        <label for="update_user_name">Update user</label><br>
+        <input type="text" id="update_user_name" value="enter user name" >
+        <label for="update_user_ID">ID</label>
+        <input type="text" id="update_user_ID" value="ID" >
+        <button onclick="update_user()">update</button>
+    </div>
+
+    <div>
+        <label for="add_user_name">Add user</label><br>
+        <input type="text" id="add_user_name" value="enter user name" >
+        <button onclick="add_user()">add</button>
+    </div>
+
+    <div>
+        <label for="delete_user_ID">Delete user</label><br>
+        <input type="text" id="delete_user_ID" value="ID" >
+        <button onclick="delete_user()">delete</button>
+    </div>
+
+    <div id="feedback"></div>
 
 </body>
 

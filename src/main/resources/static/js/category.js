@@ -2,12 +2,12 @@ $(document).ready(function () {
 
 });
 
-function add_user() {
+function add_category() {
     var text = {}
-    text["name"] = $("#add_user_name").val();
+    text["name"] = $("#add_category_name").val();
 
         $.ajax({
-        url: "api/users",
+        url: "api/categories",
         type: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -23,13 +23,13 @@ function add_user() {
     });
 }
 
-function get_users(){
-     var id = $("#get_users_ID").val();
+function get_category(){
+     var id = $("#get_category_ID").val();
 
         $.ajax({
         type: "GET",
         contentType: "application/json",
-        url: "api/users/" + id,
+        url: "api/categories/" + id,
         success: function (data) {
             console.log(data);
             var json = "<h4>Ajax Response get</h4><pre>"
@@ -39,14 +39,14 @@ function get_users(){
      });
 }
 
-function update_user(){
+function update_category(){
          var text = {}
-         text["name"] = $("#update_user_name").val();
+         text["name"] = $("#update_category_name").val();
 
-         var id = $("#update_user_ID").val();
+         var id = $("#update_category_ID").val();
 
              $.ajax({
-             url: "api/users/" + id,
+             url: "api/categories/" + id,
              type: "PUT",
              headers: {
                  "Content-Type": "application/json",
@@ -62,12 +62,12 @@ function update_user(){
          });
 }
 
-function delete_user(){
-     var id = $("#delete_user_ID").val();
+function delete_category(){
+     var id = $("#delete_category_ID").val();
 
         $.ajax({
         type: "DELETE",
-        url: "api/users/" + id,
+        url: "api/categories/" + id,
         success: function (data) {
             console.log(data);
             var json = "<h4>Ajax Response delete</h4><pre>"

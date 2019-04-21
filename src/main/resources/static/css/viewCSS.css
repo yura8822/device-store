@@ -1,0 +1,32 @@
+
+body{
+margin:332px auto;
+text-align: center;
+font-size:150%;
+color: #fcfcfc;
+font-weight: bold;
+background-color: #314bb2;
+background-image:-webkit-linear-gradient(top,#CBC5C5, #314bb2);
+}
+div{
+margin:10px auto;
+}
+input {
+width: 25%;
+border-radius: 10px;
+padding: 10px;
+}
+input[name="update user"]{
+width:11%;
+}
+input[name="id"]{
+width: 9%;
+}
+button{
+padding: 10px;
+color: #d5dded;
+background-color: #203b72;
+border: 2px solid #e8e8e8;
+border-radius: 10px;
+font-size: 70%;
+}

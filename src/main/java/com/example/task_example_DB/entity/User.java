@@ -22,7 +22,7 @@ public class User implements Serializable {
     @Column(name = "name", length = 256)
     private String name;
 
-    @JsonIgnore
+    //@JsonIgnore
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
     private List<Expence> expence;
 
