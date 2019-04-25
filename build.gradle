@@ -44,9 +44,7 @@ dependencies {
 
     testImplementation "org.springframework.boot:spring-boot-starter-test"
 
-
-
-
+    implementation "org.springframework.boot:spring-boot-starter-amqp"
 }
 wrapper {
     gradleVersion = "5.0" // Желаемая версия
